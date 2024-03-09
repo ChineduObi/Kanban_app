@@ -1,0 +1,15 @@
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\bin\Debug\Kanban_App.exe.config
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\bin\Debug\Kanban_App.exe
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\bin\Debug\Kanban_App.pdb
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.csproj.AssemblyReference.cache
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\MainWindow.g.cs
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\App.g.cs
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App_MarkupCompile.cache
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App_MarkupCompile.lref
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\MainWindow.baml
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.g.resources
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.Properties.Resources.resources
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.csproj.GenerateResource.cache
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.csproj.CoreCompileInputs.cache
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.exe
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.pdb

@@ -1,0 +1,59 @@
+﻿<Window x:Class="Kanban_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kanban_App"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="740" Width="1280" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--App Menu-->
+        <Border CornerRadius="10 0 0 10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="1, 0" EndPoint="0,1">
+                    <GradientStop Color="LightSteelBlue" Offset="0.0"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+           
+            <Button Margin="0,90,0,630" Background="White">
+                <StackPanel Orientation="Horizontal" >
+                    <fa:IconImage Icon="Home"/>
+                    <TextBlock Text="Dashboard"/>
+                </StackPanel>
+            </Button>
+        </Border>
+
+        <!--App Content-->
+        <Border Grid.Column="1" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5,1">
+                    <GradientStop Color="LightGray" Offset="0.0"/>
+                    <GradientStop Color="LightGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel>
+                <!--UserName-->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="-200 3 0 0">
+                    <!-- Image -->
+                    <Image Source="C:\Users\Adrian\Downloads\Subtract.png" Width="50" Height="50" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    <!-- App Name -->
+                    <TextBlock Text="KanFlo" Foreground="RoyalBlue" FontSize="20" FontWeight="Bold" Height="26" />
+                </StackPanel>
+ 
+            </StackPanel>
+        </Border>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+    </Grid>
+</Window>
