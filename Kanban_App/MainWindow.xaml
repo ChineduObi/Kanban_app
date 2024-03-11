@@ -6,54 +6,151 @@
         xmlns:local="clr-namespace:Kanban_App"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="740" Width="1280" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="1080" Width="1980" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Task Card DropShadowEffect -->
+        <DropShadowEffect x:Key="CardDropShadow" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
 
-        <!--App Menu-->
-        <Border CornerRadius="10 0 0 10" Grid.RowSpan="2">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="1, 0" EndPoint="0,1">
-                    <GradientStop Color="LightSteelBlue" Offset="0.0"/>
-                    <GradientStop Color="LightBlue" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Border.Background>
-           
-            <Button Margin="0,90,0,630" Background="White">
-                <StackPanel Orientation="Horizontal" >
-                    <fa:IconImage Icon="Home"/>
-                    <TextBlock Text="Dashboard"/>
+        <!-- Task Card DataTemplate -->
+        <DataTemplate x:Key="TaskCardTemplate">
+            <Border Background="White" CornerRadius="10" Margin="5" 
+                    Effect="{StaticResource CardDropShadow}">
+                <StackPanel>
+                    <!-- Task Title -->
+                    <TextBlock Text="{Binding TaskTitle}" FontWeight="Bold" FontSize="16" Margin="5"/>
+
+                    <!-- Label or Category -->
+                    <Border Background="{Binding LabelColor}" CornerRadius="10" Padding="3" Margin="5">
+                        <TextBlock Text="{Binding Category}" Foreground="White" FontSize="12"/>
+                    </Border>
+
+                    <!-- Due Date and User Avatars -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <!-- Due Date -->
+                        <TextBlock Text="{Binding DueDate}" FontSize="12" Margin="0,0,5,0"/>
+
+                        <!-- Avatars -->
+                        <ItemsControl ItemsSource="{Binding AssignedUsers}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Ellipse Width="24" Height="24" Margin="0,0,5,0">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding AvatarImagePath}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <!-- Progress Indicator or Tags -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <!-- Example of a progress bar -->
+                        <ProgressBar Width="100" Height="10" Value="{Binding Progress}" Maximum="100"/>
+                        <!-- Tags could also be shown here -->
+                    </StackPanel>
+
+                    <!-- Task Description or Additional Details -->
+                    <TextBlock Text="{Binding Description}" FontSize="12" Margin="5" TextWrapping="Wrap"/>
                 </StackPanel>
-            </Button>
-        </Border>
 
-        <!--App Content-->
-        <Border Grid.Column="1" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown" Grid.RowSpan="2">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5,1">
-                    <GradientStop Color="LightGray" Offset="0.0"/>
-                    <GradientStop Color="LightGray" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Border.Background>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <Border CornerRadius="10 10 10 10" Background="LightGray">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+            <Border CornerRadius="10 0 0 10" Background="#5E80D8" Opacity="0.15">
+
+            </Border>
             <StackPanel>
                 <!--UserName-->
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="-200 3 0 0">
+                <StackPanel Orientation="Horizontal">
                     <!-- Image -->
                     <Image Source="C:\Users\Adrian\Downloads\Subtract.png" Width="50" Height="50" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     <!-- App Name -->
                     <TextBlock Text="KanFlo" Foreground="RoyalBlue" FontSize="20" FontWeight="Bold" Height="26" />
                 </StackPanel>
- 
-            </StackPanel>
-        </Border>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
-    </Grid>
+                <StackPanel VerticalAlignment="Top" Margin="20,20,0,0">
+                    <!-- Home Button -->
+                    <Button x:Name="btnHome" Height="40" Margin="10" Padding="5" HorizontalContentAlignment="Left" Background="Transparent" BorderThickness="0" Foreground="DarkBlue" FontSize="18" FontWeight="Bold" Opacity="0.5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="C:\Users\Adrian\Desktop\ECE-5010\Images\3643769-building-home-house-main-menu-start_113416.png" Width="24" Height="24" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Home" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- My Tasks Button -->
+                    <Button x:Name="btnMyTasks" Height="40" Margin="10" Padding="5" HorizontalContentAlignment="Left" Background="Transparent" BorderThickness="0" Foreground="DarkBlue" FontSize="18" FontWeight="Bold" Opacity="0.5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="C:\Users\Adrian\Desktop\ECE-5010\Images\checked2_112475.png" Width="24" Height="24" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="My Tasks" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Inbox Button -->
+                    <Button x:Name="btnInbox" Height="40" Margin="10" Padding="5" HorizontalContentAlignment="Left" Background="Transparent" BorderThickness="0" Foreground="DarkBlue" FontSize="18" FontWeight="Bold" Opacity="0.5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="C:\Users\Adrian\Desktop\ECE-5010\Images\mbrialert_99504.png" Width="24" Height="24" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Inbox" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <!-- Separator -->
+                <Separator Height="2" Margin="10,5,10,5" Background="DimGray"/>
+
+            </StackPanel>
+
+
+            <Border Margin="0,0,0,1002" Grid.Column="1" Background="White" CornerRadius="0 10 0 0">
+                <StackPanel>
+                    <!-- Search Box with rounded corners -->
+                    <Border Background="#E5E5E5" CornerRadius="20" Height="44" Margin="10 20" Width="376" HorizontalAlignment="Left">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="C:\Users\Adrian\Downloads\search_magnifier_icon_145939.png" Height="20" Width="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Background="Transparent" BorderThickness="0" Margin="5,0" FontSize="14" Foreground="Gray" Text="Search" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Height="884" Margin="37,147,0,0" VerticalAlignment="Top" Width="1618">
+                <StackPanel Orientation="Horizontal">
+                    <!--To-Do Column-->
+                    <Border Background="Lavender" CornerRadius="10 10 10 10" Margin="5" Padding="10" Width="334">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Text="TO-DO" FontWeight="Bold" FontSize="18" VerticalAlignment="Center"/>
+                            <Button Command="{Binding AddTaskCommand}" VerticalAlignment="Center" Margin="10,0,0,0" Width="24" Height="24">
+                                <fa:IconImage Icon="Plus"/>
+                            </Button>
+                            <ItemsControl Grid.Row="1" ItemsSource="{Binding TaskList}" ItemTemplate="{StaticResource TaskCardTemplate}"/>
+                        </Grid>
+                 
+                    </Border>
+                    <ItemsControl ItemsSource="{Binding TaskList}" ItemTemplate="{StaticResource TaskCardTemplate}" Margin="10"/>
+                </StackPanel>
+            </ScrollViewer>
+
+
+        </Grid>
+    </Border>
 </Window>

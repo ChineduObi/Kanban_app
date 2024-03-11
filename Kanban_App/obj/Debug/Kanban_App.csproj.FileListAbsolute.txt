@@ -13,3 +13,6 @@ C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.cspro
 C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.csproj.CoreCompileInputs.cache
 C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.exe
 C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.pdb
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\App.baml
+C:\Users\Adrian\Desktop\ECE-5010\KanbanApp\Kanban_App\obj\Debug\Kanban_App.csproj.Up2Date
